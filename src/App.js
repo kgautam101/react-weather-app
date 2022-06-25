@@ -24,7 +24,6 @@ export default function App() {
         });
     }
   };
-
   return (
     <div className={isWarm(weather) ? "app warm" : "app"}>
       <main>
@@ -39,6 +38,9 @@ export default function App() {
           />
         </div>
         <div className="location-box">
+          {weather.message === "city not found" && (
+            <div className="location-not-found">City not found!</div>
+          )}
           {weather?.name && (
             <div className="location">
               {weather?.name}, {weather?.sys?.country}
